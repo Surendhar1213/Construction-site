@@ -1,0 +1,65 @@
+:root {
+  --primary-color: #1a1a1a;
+  /* Dark Text for Light Mode */
+  --secondary-color: #555555;
+  --accent-color: #ff6b35;
+
+  --bg-light: #f9f9f9;
+  --bg-dark: #0b0b0b;
+
+  --text-light: #666666;
+  --text-dark: #ffffff;
+
+  --font-main: 'Outfit', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #ffffff;
+  color: var(--primary-color);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Global Animation Classes (Kept because they are useful) */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+.reveal-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Utility for text gradients */
+.text-gradient {
+  background: linear-gradient(135deg, #1a1a1a 0%, #555 100%);
+
+  -webkit-text-fill-color: transparent;
+}

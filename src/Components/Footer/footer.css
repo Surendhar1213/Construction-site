@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+.footer {
+    /* Use the exact gradient from Services/Projects as requested */
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.75) 0%, rgba(0, 0, 0, 0.88) 50%, rgba(0, 0, 0, 0.92) 100%);
+    color: #fff;
+    width: 100%;
+    font-family: 'Outfit', sans-serif;
+    /* Unified Font */
+    padding-top: 20px;
+}
+
+/* Top Info */
+.top-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 35px 7%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.top-info h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: #fff;
+}
+
+.top-info p {
+    font-size: 15px;
+    opacity: 0.85;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.icon {
+    font-size: 23px;
+    color: #ff5722;
+    /* Theme Orange */
+}
+
+/* Footer Content */
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    padding: 70px 7%;
+    gap: 45px;
+}
+
+.brand {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: #ff5722;
+    /* Theme Orange */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.company-description {
+    font-size: 16px;
+    line-height: 26px;
+    opacity: 0.8;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Headings */
+.footer-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* Bullet List */
+.footer-links {
+    list-style: none;
+    /* Removed disc for cleaner look */
+    padding-left: 0;
+}
+
+.footer-links li {
+    font-size: 16px;
+    opacity: 0.85;
+    cursor: pointer;
+    margin-bottom: 14px;
+    transition: 0.3s;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-links li:hover {
+    color: #ff5722;
+    /* Theme Orange */
+    opacity: 1;
+    transform: translateX(5px);
+    /* Interactive slide */
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 14px;
+}
+
+.social-icons a {
+    font-size: 20px;
+    color: #fff;
+    transition: 0.3s;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.social-icons a:hover {
+    background: #ff5722;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Subscribe */
+.subscribe-box {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    margin-top: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.subscribe-box input {
+    flex: 1;
+    border: none;
+    padding: 14px;
+    font-size: 15px;
+    outline: none;
+    background: transparent;
+    color: #fff;
+}
+
+.subscribe-box input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.subscribe-btn {
+    background: #ff5722;
+    /* Theme Orange */
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 14px 20px;
+    cursor: pointer;
+    border-radius: 0 6px 6px 0;
+    transition: 0.3s;
+}
+
+.subscribe-btn:hover {
+    background: #e64a19;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+    font-size: 15px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.bottom-links {
+    display: flex;
+    gap: 25px;
+}
+
+.bottom-links a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.bottom-links a:hover {
+    color: #ff5722;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+    .top-info {
+        flex-wrap: wrap;
+        gap: 30px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .info-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media(max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

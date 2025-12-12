@@ -1,0 +1,275 @@
+/* === Work Process Section - Vertical Zig-Zag Timeline === */
+.work-process-section {
+    padding: 120px 0;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Header */
+.section-header {
+    margin-bottom: 90px;
+    position: relative;
+    z-index: 2;
+}
+
+.sub-title-neon {
+    color: #FF5733;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.process-main-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+/* Container */
+.process-timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Center Line */
+.timeline-center-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: #e0e0e0;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Ensure line has a gradient fill effect visually indicating flow */
+.timeline-center-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    /* Just purely decorative static gradient for now */
+    background: linear-gradient(to bottom, #ffaa00, transparent);
+    opacity: 0.3;
+}
+
+/* Row */
+.process-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 2;
+}
+
+.process-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Content & Image Widths */
+.process-content,
+.process-image-wrapper {
+    width: 45%;
+    position: relative;
+}
+
+/* Center Node */
+.process-center-node {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 4px solid #ffaa00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 1);
+    /* White ring to mask line */
+    transition: all 0.3s ease;
+}
+
+.process-center-node i {
+    color: #ffaa00;
+    font-size: 1.5rem;
+}
+
+.process-row:hover .process-center-node {
+    background: #ffaa00;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.process-row:hover .process-center-node i {
+    color: #fff;
+}
+
+/* Layout Logic */
+.row-left {
+    flex-direction: row;
+}
+
+.row-right {
+    flex-direction: row-reverse;
+}
+
+.row-left .process-content {
+    text-align: right;
+    padding-right: 40px;
+}
+
+.row-right .process-content {
+    text-align: left;
+    padding-left: 40px;
+}
+
+/* Typography */
+.process-number-badge {
+    display: inline-block;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.10);
+    /* Very subtle watermark number */
+    line-height: 1;
+    margin-bottom: -20px;
+    position: absolute;
+    top: -70px;
+}
+
+.row-left .process-number-badge {
+    right: 30px;
+}
+
+.row-right .process-number-badge {
+    left: 30px;
+}
+
+.process-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.process-desc {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* Image Styling */
+.process-image-wrapper {
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 5px solid #fff;
+}
+
+.process-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 170, 0, 0);
+    transition: all 0.4s ease;
+}
+
+/* Hover Effects on Image */
+.process-row:hover .process-image-wrapper {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    border-color: #fff;
+}
+
+.process-row:hover .process-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.process-row:hover .img-overlay {
+    background: rgba(255, 170, 0, 0.1);
+    /* Subtle orange tint */
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .process-timeline-container {
+        padding-left: 50px;
+        /* Space for line on left */
+    }
+
+    .timeline-center-line {
+        left: 20px;
+        transform: none;
+    }
+
+    .process-row,
+    .row-right {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 60px;
+    }
+
+    .process-center-node {
+        left: 20px;
+        transform: translate(-50%, -50%);
+        /* Centered on line */
+        top: 0;
+        /* Align with top roughly */
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 5px #fff;
+    }
+
+    .process-center-node i {
+        font-size: 1rem;
+    }
+
+    .process-content {
+        width: 100%;
+        text-align: left !important;
+        padding: 0 0 30px 40px !important;
+        padding-left: 0 !important;
+        margin-top: 20px;
+    }
+
+    .process-number-badge {
+        position: relative;
+        top: 0;
+        left: 0 !important;
+        right: auto !important;
+        margin-bottom: 10px;
+        font-size: 3rem;
+    }
+
+    .process-image-wrapper {
+        width: 100%;
+        height: 250px;
+        margin-left: 0;
+    }
+}

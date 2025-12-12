@@ -1,0 +1,215 @@
+/* === Testimonials Section === */
+:root {
+    --main-color: #ffaa00;
+    --black-color: #0a0a0a;
+    --white-color: #ffffff;
+    --text-gray: #b0b0b0;
+    --card-bg: #111111;
+}
+
+.testimonial-two {
+    position: relative;
+    padding: 120px 0;
+    /* Hero/Services Gradient */
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.75) 0%, rgba(0, 0, 0, 0.95) 40%, rgba(0, 0, 0, 1) 100%);
+    overflow: hidden;
+    font-family: 'Outfit', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header */
+.sec-title {
+    margin-bottom: 60px;
+}
+
+.sec-title .sub-title {
+    color: var(--main-color);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.sec-title h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--white-color);
+    line-height: 1.2;
+}
+
+/* Slider Container */
+.testimonial-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0 50px 0;
+}
+
+.testimonial-track {
+    display: flex;
+    width: 100%;
+    gap: 0;
+    /* Gap handled by padding in item */
+}
+
+.testimonial-item-wrapper {
+    min-width: 33.33%;
+    width: 33.33%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+/* Card Style */
+.testimonial-block_two {
+    position: relative;
+    height: 100%;
+}
+
+.testimonial-block_two-inner {
+    position: relative;
+    padding: 50px 40px;
+    border-radius: 20px;
+    background-color: var(--card-bg);
+    border: 1px solid #222;
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-block_two-inner:hover {
+    border-color: var(--main-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Rating */
+.testimonial-block_two-rating {
+    color: var(--main-color);
+    font-size: 14px;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 5px;
+}
+
+/* Text */
+.testimonial-block_two-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 40px;
+    flex-grow: 1;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Author */
+.author-info {
+    margin-top: auto;
+}
+
+.testimonial-block_two-author {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--main-color);
+    margin-bottom: 5px;
+}
+
+.testimonial-block_two-author span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-gray);
+    margin-top: 5px;
+}
+
+/* Author Image */
+.testimonial-block_two-image {
+    position: absolute;
+    right: 40px;
+    bottom: -30px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 4px solid var(--card-bg);
+    /* Blend with card bg?? No, usually blends with section bg or card bg. */
+    border: 4px solid #0a0a0a;
+    /* Matches section bg roughly */
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-block_two-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Controls */
+.testimonial-arrows {
+    position: absolute;
+    top: 50px;
+    /* Align with header roughly */
+    right: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.arrow-btn-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    background: transparent;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.arrow-btn-circle:hover {
+    background: var(--main-color);
+    color: var(--white-color);
+    border-color: var(--main-color);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .testimonial-item-wrapper {
+        min-width: 50%;
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-item-wrapper {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .testimonial-arrows {
+        position: relative;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .sec-title {
+        text-align: center;
+    }
+}

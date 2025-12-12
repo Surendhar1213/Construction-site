@@ -1,0 +1,368 @@
+/* === Hero Section - Diagonal Kinetic Design === */
+.hero-diagonal {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* === Diagonal Slide Logic === */
+.diagonal-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    /* Initial State: Hidden via clip-path (slanted slice off-screen to the right) */
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.diagonal-slide.active {
+    z-index: 10;
+    /* Final State: Full screen visible */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.diagonal-slide.previous {
+    z-index: 5;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    /* Image inside previous slide scales down slightly */
+}
+
+/* Image Styling */
+.diagonal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.3);
+    transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.diagonal-slide.active .diagonal-image {
+    transform: scale(1);
+}
+
+/* Overlay - Dark with slight orange tint */
+.diagonal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(115deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.85) 100%);
+    z-index: 1;
+}
+
+/* === Content Layer === */
+.diagonal-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+    pointer-events: none;
+    /* Let clicks pass through to nav if needed, but buttons need pointer-events: auto */
+}
+
+/* Giant Background Counter */
+.slide-counter-large {
+    font-size: 15vw;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
+    /* Outline text */
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    line-height: 1;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.diagonal-slide.active .slide-counter-large {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    animation: counterReveal 1s ease-out forwards;
+}
+
+@keyframes counterReveal {
+    from {
+        transform: translateY(-50%) translateX(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(-50%) translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Title - Kinetic Split Words */
+.diagonal-title {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 2rem;
+    z-index: 5;
+    overflow: hidden;
+    max-width: 80%;
+}
+
+.word-span {
+    display: inline-block;
+    margin-right: 15px;
+    transform: translateY(120%);
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.8s ease;
+}
+
+.diagonal-slide.active .word-span {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Subtitle */
+.diagonal-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 500px;
+    margin-bottom: 3rem;
+    z-index: 5;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease 0.6s;
+    border-left: 5px solid #FF5733;
+    padding-left: 20px;
+}
+
+.diagonal-slide.active .diagonal-subtitle {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Buttons */
+.diagonal-btn-group {
+    display: flex;
+    gap: 20px;
+    z-index: 5;
+    pointer-events: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.8s;
+}
+
+.diagonal-slide.active .diagonal-btn-group {
+    opacity: 1;
+}
+
+.btn-diagonal-primary {
+    padding: 18px 40px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+    /* Tech angular shape */
+    transition: all 0.3s ease;
+}
+
+.btn-diagonal-primary:hover {
+    background: #FF5733;
+    color: #fff;
+    padding-right: 50px;
+}
+
+.arrow-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+.btn-diagonal-outline {
+    padding: 18px 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-diagonal-outline:hover {
+    border-color: #FF5733;
+    color: #fff;
+}
+
+/* === Controls === */
+.diagonal-controls {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 30;
+}
+
+.nav-arrow {
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.nav-arrow:hover {
+    background: #FF5733;
+    border-color: #FF5733;
+    color: #000;
+}
+
+.nav-indicators {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-dot {
+    width: 40px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+    background: #FF5733;
+    width: 60px;
+    /* Expands when active */
+}
+
+/* === Decorative Elements === */
+/* A glowing diagonal line running through the screen */
+.diagonal-deco-line {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    width: 2px;
+    height: 200%;
+    background: linear-gradient(to bottom, transparent, #ffaa00, transparent);
+    transform: rotate(25deg);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Mouse Scroll */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    z-index: 20;
+}
+
+.mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: #ffaa00;
+    border-radius: 2px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+    0% {
+        top: 10px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 30px;
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .slide-counter-large {
+        display: none;
+        /* Too big for mobile/tablet */
+    }
+
+    .diagonal-title {
+        font-size: 3.5rem;
+    }
+
+    .diagonal-content {
+        padding-left: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .diagonal-title {
+        font-size: 2.5rem;
+    }
+
+    .diagonal-btn-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .diagonal-controls {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
