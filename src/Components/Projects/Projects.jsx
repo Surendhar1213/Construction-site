@@ -2,6 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import './projects.css';
 import ScrollReveal from '../ScrollReveal/ScrollReveal';
 
+
+// Import local images
+import interior1 from '../../assets/projects/interior-1.jpg';
+import interior2 from '../../assets/projects/interior-2.jpg';
+import interior3 from '../../assets/projects/interior-3.jpg';
+import construction1 from '../../assets/projects/construction-1.jpg';
+import construction2 from '../../assets/projects/construction-2.jpg';
+import construction3 from '../../assets/projects/construction-3.jpg';
+
 const Projects = () => {
     const [counts, setCounts] = useState({
         clients: 0,
@@ -20,24 +29,24 @@ const Projects = () => {
         right: []
     });
 
-    // Left side - Home Interior Images (6 different images)
+    // Left side - Home Interior Images (6 images)
     const leftImages = [
-        'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80',
-        'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80',
-        'https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=800&q=80',
-        'https://images.unsplash.com/photo-1615873968403-89e068629265?w=800&q=80',
-        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
-        'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80'
+        interior1,
+        interior2,
+        interior3,
+        interior1,
+        interior2,
+        interior3
     ];
 
-    // Right side - Completed Building Construction Images (6 different images)
+    // Right side - Completed Building Construction Images (6 images)
     const rightImages = [
-        'https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=900&q=80',
-        'https://images.unsplash.com/photo-1448630360428-65456885c650?w=900&q=80',
-        'https://images.unsplash.com/photo-1464146072230-91cabc968266?w=900&q=80',
-        'https://images.unsplash.com/photo-1511452885600-a3d2c9148a31?w=900&q=80',
-        'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80',
-        'https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=900&q=80'
+        construction1,
+        construction2,
+        construction3,
+        construction1,
+        construction2,
+        construction3
     ];
 
     // Preload images with lazy loading
@@ -46,7 +55,6 @@ const Projects = () => {
             return new Promise((resolve) => {
                 const img = new Image();
                 img.src = src;
-                img.loading = 'lazy';
                 img.onload = () => {
                     setImagesLoaded(prev => ({
                         ...prev,
